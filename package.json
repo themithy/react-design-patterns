@@ -1,8 +1,8 @@
 {
-  "name": "react-singleton",
+  "name": "react-design-patterns",
   "version": "1.0.0",
-  "description": "A singleton pattern in react",
-  "main": "src/index.js",
+  "description": "Design patterns in React",
+  "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server"
   },

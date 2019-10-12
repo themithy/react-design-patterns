@@ -50,11 +50,191 @@ The final outcome can go well-beyond having just a one component in vdom, we
 can handle *props* update in any reference or have event callbacks behave in
 similar way to generic listeners.
 
-## Memento
+Please see an example in the code.
 
-It seems to be easy to implement Memento using `useImperativeHandle`. TBD.
+## Decoupling
+
+The idea of decoupling or *louse coupling* exists behind many of the design
+patterns. Is it not only the business logic or logic in general that can be
+abstracted, but virtually every concept like algorithm, state, etc.; and this
+list is open-ended.
+
+Let us start with a very simple example below.
+
+```js
+const text = <Text color="paleBlue" />
+```
+
+The implementation of the `Text` class in not exactly right, because every time
+a new color is added to the palette, we need to changed the class. A much
+better solution would be to define the color outside, and pass it to the
+instance of that class. This is what is called **dependency injection**.
+
+```js
+import { paleBlue } from 'colors'
+
+const text = <Text color={paleBlue} />
+```
 
 ## Bridge
 
-This one seems to be very interesting, needs more exploration. TBD.
+Now let us consider a pattern very useful in front-end projects. A component
+that seems very simple to implement but usually turns the opposite is the
+button component. It starts with some border radius and primary and secondary
+color palette. However in the life-time of the project several features are
+requested that make this component bloated or split in two with not obvious
+reason.  This includes:
+* the color palette going well beyound primary and secondary.
+* the necessity to display a icon on button.
+* a link that should look like a button.
+
+This is where the *bridge pattern* comes in play, as it decouples the
+abstraction (how the component works) from the implementation (how the
+component looks like).
+
+```js
+import { Button, Link } from 'abstraction'
+import { ButtonUI, ButtonWithIconUI } from 'implementation'
+
+<Button
+  {...buttonProps} 
+  uiComponent={ButtonWithIconUI}
+  uiProps={...}
+/>
+
+<Link
+  {...linkProps} 
+  uiComponent={ButtonUI}
+  uiProps={...}
+/>
+```
+
+Please see an example in the code.
+
+## Factory
+
+The *factory pattern* allows to factor out the process of object creation.
+This can have multiple purpose:
+* the final object depends on the parameters.
+* separate a simple object representation from the logic of creating it.
+
+This seems especially useful in front-end programming to initialize ui
+components from REST data.
+
+```js
+function factory(params) {
+  let condition, prop
+  
+  // do some computation with params
+
+  if (condition) {
+    return <Object1 prop={prop} />
+  }
+  else {
+    return <Object2 prop={prop} />
+  }
+}
+```
+
+A data to initialize a specific object can come from multiple sources (e.g.
+REST endpoints), this is an example where *abstract factory* comes into play.
+We define multiple factories, each per endpoint, which create the same object
+based on different data.
+
+## Builder
+
+In the *builder pattern* the construction of an object, or even a composite,
+is done in multiple steps, for example while chunks of data arrive. It should
+the `toElement` function to return the final element.
+
+
+```
+class Builder {
+
+  buildStep1() { ... }
+
+  buildStep2() { ... }
+
+  toElement() {
+    return <Element {...someProps} />
+  }
+}
+```
+
+## Mediator
+
+The *mediator pattern* allows two or more object to communicate without any of
+this object depending on the other. This pattern is rarely seen in React
+programming because the communication is usually handled by third-party
+libraries or state containers, most notably *Redux*. This is not exactly right
+for two simple reasons:
+* A global state does not encapsulate the internals of the interaction.
+* A global state is not well-suited for storing promises and functions.
+
+```js
+const mediator = new Mediator()
+
+const Client = () => {
+  return (
+    <React.Fragment>
+      <Object1 mediator={mediator} />
+      <Object2 mediator={mediator} />
+    </React.Fragment>
+  )
+}
+```
+
+Please see an example in the code.
+
+## Observer
+
+This one is what I would call an *intuitive* design pattern and is heavily used
+in the wild.
+
+```js
+const Observer = () => {
+  React.useEffect(() => {
+    const someFunction = () => {}
+
+    document.addEventListener('click', someFunction)
+
+    return () => {
+      document.removeEventListener('click', someFunction)
+    }
+  }, [])
+}
+```
+
+## Decorator
+
+The *decorator patterns* allows to "wrap" object in each other, providing that
+they share the same interface and call the methods in a "pipe". TBD.
+
+## Facade
+
+This is also heavily used:
+
+```js
+const Facade = ({ generalProp }) => {
+  return (
+    <React.Fragment>
+      <Object1 />
+      <Object2 specificProp={generalProp} />
+      <Object3 />
+    </React.Fragment>
+  )
+}
+```
+
+## Memento
+
+The internal state of the component can encapsulated and referenced using
+the *forward ref* mechanism.
+
+```js
+React.useImperativeHandle(ref, () => ({
+  createMemento: () => { return state },
+  restore: (memento) => { setState(memento) },
+}))
+```
 

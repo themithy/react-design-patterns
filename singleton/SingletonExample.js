@@ -1,13 +1,12 @@
 
 import React from 'react'
-import ReactDOM from 'react-dom'
 
 import singletonHOC from './singletonHOC'
 import Counter from './Counter'
 
 const SingletonCounter = singletonHOC(Counter)
 
-const App = () => {
+const Client = () => {
   const [ mounted1, setMounted1 ] = React.useState(false)
   const [ mounted2, setMounted2 ] = React.useState(false)
   const [ mounted3, setMounted3 ] = React.useState(false)
@@ -34,8 +33,4 @@ const App = () => {
   )
 }
 
-const root = document.createElement('div')
-document.body.appendChild(root)
-
-ReactDOM.render(<App />, root) 
-
+export default Client
