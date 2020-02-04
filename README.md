@@ -207,8 +207,34 @@ const Observer = () => {
 
 ## Decorator
 
-The *decorator patterns* allows to "wrap" object in each other, providing that
-they share the same interface and call the methods in a "pipe". TBD.
+The *decorator pattern* allows to "wrap" object in each other, providing that
+they share the same interface and call each other methods. In React we are
+concerned with only one method, namely the "render".
+
+The implementation may differ, in class-based components the "HOC pattern" can
+be seen as an utilisation of the decorator pattern. However it gets more
+interesting when we get to function-based components. We can just wrap
+functions with hooks in each other, obtaining the desired behaviour. There is
+no need to call `React.createElement`, we can just call the component is if it
+were an ordinary function, thus saving on levels in virtual DOM.
+
+```js
+
+const Counter = ({ count }) => {
+  return <span>Count equals {count}</span>
+}
+
+const MultiplyCountDecorator = (counter) => {
+  return ({ count, ...props }) => {
+    return counter({ count: 2 * count, ...props })
+  }
+}
+
+const DecoratedCounter = MultiplyCountDecorator(Counter)
+
+```
+
+`React.memo` is another example of a usage of the decorator pattern.
 
 ## Facade
 
