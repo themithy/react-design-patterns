@@ -264,3 +264,28 @@ React.useImperativeHandle(ref, () => ({
 }))
 ```
 
+## Command
+
+The *command pattern* is an excellent example of the general rule of design
+patterns that is to encapsulate some behaviour.
+
+In the following example the Wizard component will encapsulate the way the user
+moves between corresponding steps. Any change in this logic (like for example
+adding the possibility to move backward) will not affect the implementation
+of particular steps.
+
+When the command pattern is not used the logic of moving between steps (e.g.
+via routing) is usually distributed among different components. Futher more
+the accumulated state is not properly encapsulated but exposed in a global
+state container like "redux".
+
+```js
+<Wizard
+  steps={[
+    Step1,
+    Step2,
+    Step3,
+  ]}
+/>
+```
+

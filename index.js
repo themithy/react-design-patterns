@@ -6,6 +6,7 @@ import SingletonExample from './singleton/SingletonExample'
 import MediatorExample from './mediator/MediatorExample'
 import BridgeExample from './bridge/BridgeExample'
 import MementoExample from './memento/MementoExample'
+import CommandExample from './command/CommandExample'
 
 const App = () => {
   const [ example, setExample ] = React.useState()
@@ -29,12 +30,17 @@ const App = () => {
           children="Memento"
           onClick={() => setExample('memento')}
         />
+        <button
+          children="Command"
+          onClick={() => setExample('command')}
+        />
       </div>
 
       { example === 'singleton' && <SingletonExample /> }
       { example === 'bridge' && <BridgeExample /> }
       { example === 'mediator' && <MediatorExample /> }
       { example === 'memento' && <MementoExample /> }
+      { example === 'command' && <CommandExample /> }
     </React.Fragment>
   )
 }
