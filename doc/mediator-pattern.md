@@ -1,3 +1,5 @@
+# Mediator pattern
+
 The communication between different components is usually implemented in a way
 that a common state is extracted and moved up in the tree, and the
 communication is handled via callbacks. Alternatively the state is moved a to

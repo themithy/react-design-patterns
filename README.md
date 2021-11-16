@@ -54,6 +54,8 @@ Please see an example in the code.
 
 ## Decoupling
 
+[Full article on dependency injection](doc/dependency-injection.md)
+
 The idea of decoupling or *louse coupling* exists behind many of the design
 patterns. Is it not only the business logic or logic in general that can be
 abstracted, but virtually every concept like algorithm, state, etc.; and this
@@ -77,6 +79,8 @@ const text = <Text color={paleBlue} />
 ```
 
 ## Bridge
+
+[Full article on bridge pattern](doc/bridge-pattern.md)
 
 Now let us consider a pattern very useful in front-end projects. A component
 that seems very simple to implement but usually turns the opposite is the
@@ -112,6 +116,8 @@ import { ButtonUI, ButtonWithIconUI } from 'implementation'
 Please see an example in the code.
 
 ## Factory
+
+[Full article on factory pattern](doc/factory-pattern.md)
 
 The *factory pattern* allows to factor out the process of object creation.
 This can have multiple purpose:
@@ -163,6 +169,8 @@ class Builder {
 
 ## Mediator
 
+[Full article on mediator pattern](doc/mediator-pattern.md)
+
 The *mediator pattern* allows two or more object to communicate without any of
 this object depending on the other. This pattern is rarely seen in React
 programming because the communication is usually handled by third-party
@@ -205,6 +213,10 @@ const Observer = () => {
 }
 ```
 
+## Messaging
+
+[Full article on messaging pattern](doc/messaging-pattern.md)
+
 ## Decorator
 
 The *decorator pattern* allows to "wrap" object in each other, providing that
@@ -236,6 +248,10 @@ const DecoratedCounter = MultiplyCountDecorator(Counter)
 
 `React.memo` is another example of a usage of the decorator pattern.
 
+## Strategy
+
+[Full article on strategy pattern](doc/strategy-pattern.md)
+
 ## Facade
 
 This is also heavily used:
@@ -264,6 +280,10 @@ React.useImperativeHandle(ref, () => ({
 }))
 ```
 
+## State
+
+[Full article on state pattern](doc/state-pattern.md)
+
 ## Command
 
 The *command pattern* is an excellent example of the general rule of design
@@ -289,3 +309,6 @@ state container like "redux".
 />
 ```
 
+## Poll
+
+[Full article on poll pattern](doc/poll-pattern.md)

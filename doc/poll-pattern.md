@@ -1,3 +1,5 @@
+# Poll pattern
+
 In declarative, component-wise programming it is sometimes desirable to detach
 a certain component from the tree. React has a function for it, namely the
 `createPortal`. This function renders the component in a different part of DOM,

@@ -1,3 +1,5 @@
+# Strategy pattern
+
 The *strategy pattern* is a way to encapsulate algorithms and inject them into
 components, thus fostering the inversion of control paradigm. The internals of
 the algorithm are decoupled from the component which provides a good separation

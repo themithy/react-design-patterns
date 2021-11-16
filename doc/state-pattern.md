@@ -1,4 +1,4 @@
-## State pattern
+# State pattern
 
 It is common in component programming to treat a component as a basic unit of
 encapsulation.  This is a very natural way of programming which is fostered by

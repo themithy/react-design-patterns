@@ -1,3 +1,5 @@
+# Factory pattern
+
 The *factory pattern* encapsulates the process of creating a component.  It is
 especially useful when creating components out of REST data. Look at the
 following example, even the actual class of the returned component may be unknown

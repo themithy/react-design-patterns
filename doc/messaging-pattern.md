@@ -1,3 +1,5 @@
+# Messaging pattern
+
 The *messaging pattern* allows components to communicate with each other, but
 unlike the mediator pattern which is local communication mechanism, this one is
 semi-global. The internals are loosely fastened to the component tree. In

@@ -1,3 +1,5 @@
+# Dependendy injection
+
 *Dependency injection* is a generic concept that states that dependencies of a
 component should be passed to it from the outside and not be defined inside.
 

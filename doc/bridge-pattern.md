@@ -1,3 +1,5 @@
+# Bridge pattern
+
 The *bridge pattern* decouples two aspects, how the components works and how
 it looks. The nature of a component makes it a perfect unit for encapsulation,
 not only on the visual level (html, css) but also on a functional level,
