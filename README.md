@@ -56,7 +56,7 @@ Please see an example in the code.
 
 [Full article on dependency injection](doc/dependency-injection.md)
 
-The idea of decoupling or *louse coupling* exists behind many of the design
+The idea of decoupling or *loose coupling* exists behind many of the design
 patterns. Is it not only the business logic or logic in general that can be
 abstracted, but virtually every concept like algorithm, state, etc.; and this
 list is open-ended.
