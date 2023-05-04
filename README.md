@@ -83,7 +83,7 @@ const text = <Text color={paleBlue} />
 [Full article on bridge pattern](doc/bridge-pattern.md)
 
 Now let us consider a pattern very useful in front-end projects. A component
-that seems very simple to implement but usually turns the opposite is the
+that seems very simple to implement but usually turns out the opposite is the
 button component. It starts with some border radius and primary and secondary
 color palette. However in the life-time of the project several features are
 requested that make this component bloated or split in two with not obvious
@@ -151,7 +151,7 @@ based on different data.
 
 In the *builder pattern* the construction of an object, or even a composite,
 is done in multiple steps, for example while chunks of data arrive. It should
-the `toElement` function to return the final element.
+call the `toElement` function to return the final element.
 
 
 ```
@@ -171,8 +171,8 @@ class Builder {
 
 [Full article on mediator pattern](doc/mediator-pattern.md)
 
-The *mediator pattern* allows two or more object to communicate without any of
-this object depending on the other. This pattern is rarely seen in React
+The *mediator pattern* allows two or more objects to communicate without any of
+the objects depending on the other. This pattern is rarely seen in React
 programming because the communication is usually handled by third-party
 libraries or state containers, most notably *Redux*. This is not exactly right
 for two simple reasons:
